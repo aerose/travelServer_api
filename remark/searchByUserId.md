@@ -8,20 +8,31 @@
 参数示例
 ```
 {
-    "userid": 1
+    "userid": 1,
+    "page": 1,
+    "pagesize": 2
+}
+```
+最简式
+```
+{
+    "userid": 1,
+    "page": 1
 }
 ```
 
 参数 | 必选 | 类型 | 说明
 -|-|-|-
 userid | T | string | 账号
-
+page | T | int|当前页码
+pagesize |F | int | 页面大小(default 10)
 
 
 #### 返回示例
 ```
 {
     "error_code": "0",
+    "total_page": 1,
     "data": [
         {
             "remarkCreateTime": "2022-09-03T08:00:00",
@@ -31,6 +42,15 @@ userid | T | string | 账号
             "remarkId": 1,
             "userName": "小明",
             "userId": 1
+        },
+        {
+            "remarkCreateTime": "2022-09-07T14:40:31",
+            "scenicId": 1,
+            "remarkChangeTime": "2022-09-07T14:40:31",
+            "remarkDetails": "太美丽了",
+            "remarkId": 8,
+            "userName": "小明",
+            "userId": 1
         }
     ]
 }
@@ -38,6 +58,7 @@ userid | T | string | 账号
 参数说明
 参数名 | 类型 | 说明
 -|-|-
+total_page | int | 总页码数
 remarkId | int | 评论主键
 userId | int | 用户主键
 userName | string | 用户昵称

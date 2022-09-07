@@ -10,18 +10,29 @@
 参数示例
 ```
 {
-    "searchstring": "西安"
+    "searchstring": "西安",
+    "page": 1,
+    "pagesize": 2
 }
 ```
+最简式
+```
+{
+    "searchstring": "西安",
+    "page": 1
+}
+```
+
 参数 | 必选 | 类型 | 说明
 -|-|-|-
 searchstring | T | string | 查询景点名
-
+page | T |int | 请求的页码
+pagesize| F | int |每页条目数(default 10)
 #### 返回示例
 ```
-
 {
     "error_code": "0",
+    "total_page": 7,
     "data": [
         {
             "scenicLocation": "秦始皇陵东1.5公里处",
@@ -54,11 +65,13 @@ searchstring | T | string | 查询景点名
             "scenicStatus": "暂时关闭（疫情）",
             "scenicCreateTime": "2022-09-03T08:00:00"
         }
+    ]
 }
 ```
 参数说明
 参数名 | 类型 | 说明
 -|-|-
+total_page|int|总页码数
 scenicId | int | 景点主键
 scenicName | string | 景点名称
 scenicIntroduction | string | 景点介绍
@@ -78,7 +91,4 @@ scenicChangeTime|string|最后修改时间
 代码|说明
 -|-
 0|成功
-1101|没查询到
-
-#### 备注
-需要加页码请联系
+1101|当前页码没查询到

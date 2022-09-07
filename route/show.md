@@ -2,8 +2,9 @@
 
 
 #### 调用地址
-`http://xxx/api/route/show/{scenicid}`
-如`http://localhost:8082/api/route/show/2`
+`http://xxx/api/route/show/{scenicid}/{page}/{pagesize}`(pagesize可省略)
+如`http://localhost:8082/api/route/show/2/1/2`
+或者`http://localhost:8082/api/route/show/2/1`
 请求方式: **GET**
 
 
@@ -11,12 +12,14 @@
 参数 | 必选 | 类型 | 说明
 -|-|-|-
 scenicid | T | int | 查询用景点主键
-
+page | T | int | 当前页码
+pagesize | F | int | 页面大小(default 10)
 
 #### 返回示例
 ```
 {
     "error_code": "0",
+    "total_page": 2,
     "data": [
         {
             "routeId": 1,
@@ -43,6 +46,7 @@ scenicid | T | int | 查询用景点主键
 参数说明
 参数名 | 类型 | 说明
 -|-|-
+total_page | int | 总页码数
 routeId | int | 路线主键
 scenicId|int|所属景点主键
 routeName | string | 路线名称

@@ -9,20 +9,30 @@
 参数示例
 ```
 {
-    "scenicid": 1
+    "scenicid": 1,
+    "page": 1,
+    "pagesize": 2
 }
 ```
-
+最简式
+```
+{
+    "scenicid": 1,
+    "page": 1
+}
+```
 参数 | 必选 | 类型 | 说明
 -|-|-|-
 scenicid | T | int | 查询景点主键
-
+page | T | int | 当前页码
+pagesize | F | int | 页面大小(default 10)
 
 
 #### 返回示例
 ```
 {
     "error_code": "0",
+    "total_page": 2,
     "data": [
         {
             "remarkCreateTime": "2022-09-03T08:00:00",
@@ -48,6 +58,7 @@ scenicid | T | int | 查询景点主键
 参数说明
 参数名 | 类型 | 说明
 -|-|-
+total_page | int | 总页码数
 remarkId | int | 评论主键
 userId| int | 用户主键
 userName | string | 用户昵称
