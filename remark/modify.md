@@ -18,15 +18,14 @@
 最简式
 ```
 {
-    "remarkid": 3,
-    "username": "xiaohua"
+    "remarkid": 3
 }
 ```
 
 参数 | 必选 | 类型 | 说明
 -|-|-|-
 remarkid | T | int | 评论主键
-username | T | string | 评论用户名
+username | F | string | 评论用户名
 remarkdetails | F | string | 新内容
 
 
